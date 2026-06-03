@@ -1,7 +1,13 @@
-let currentPage = 0;
-
+// ALL PAGES
 const pages = document.querySelectorAll(".page");
 
+let currentPage = 0;
+
+// BUTTONS
+const openBtn = document.getElementById("openBtn");
+const replayBtn = document.getElementById("replayBtn");
+
+// SPECIAL NOTE
 const birthdayMessage = `Happy Birthday Vaishuuu ❤️
 
 Be happy as always like now.
@@ -18,6 +24,10 @@ Once again,
 
 Happy Birthday Dabba ❤️`;
 
+let typingStarted = false;
+let finalStarted = false;
+
+// SHOW PAGE
 function showPage(index){
 
 pages.forEach(page=>{
@@ -36,15 +46,23 @@ startFinalAnimation();
 
 }
 
-function openStory(){
+// OPEN STORY
+if(openBtn){
+
+openBtn.addEventListener("click",()=>{
 
 currentPage = 1;
 
 showPage(currentPage);
 
+});
+
 }
 
-function nextPage(){
+// NEXT BUTTONS
+document.querySelectorAll(".next-btn").forEach(btn=>{
+
+btn.addEventListener("click",()=>{
 
 if(currentPage < pages.length - 1){
 
@@ -54,12 +72,11 @@ showPage(currentPage);
 
 }
 
-}
+});
 
-/* TYPEWRITER */
+});
 
-let typingStarted = false;
-
+// TYPEWRITER EFFECT
 function startTypewriter(){
 
 if(typingStarted) return;
@@ -67,6 +84,8 @@ if(typingStarted) return;
 typingStarted = true;
 
 const target = document.getElementById("typewriter");
+
+target.innerHTML = "";
 
 let i = 0;
 
@@ -78,7 +97,7 @@ target.innerHTML += birthdayMessage.charAt(i);
 
 i++;
 
-setTimeout(type,50);
+setTimeout(type,45);
 
 }
 
@@ -88,10 +107,7 @@ type();
 
 }
 
-/* FINAL ANIMATION */
-
-let finalStarted = false;
-
+// FINAL ANIMATION
 function startFinalAnimation(){
 
 if(finalStarted) return;
@@ -100,10 +116,10 @@ finalStarted = true;
 
 const cat = document.getElementById("cat");
 const chick = document.getElementById("chick");
-const message = document.getElementById("final-message");
+const finalMessage = document.getElementById("finalMessage");
 
-let catPos = -200;
-let chickPos = -200;
+let catPos = -250;
+let chickPos = -250;
 
 const catWalk = setInterval(()=>{
 
@@ -111,7 +127,7 @@ catPos += 5;
 
 cat.style.left = catPos + "px";
 
-if(catPos >= window.innerWidth / 2 - 130){
+if(catPos >= window.innerWidth / 2 - 140){
 
 clearInterval(catWalk);
 
@@ -125,7 +141,7 @@ chickPos += 5;
 
 chick.style.right = chickPos + "px";
 
-if(chickPos >= window.innerWidth / 2 - 120){
+if(chickPos >= window.innerWidth / 2 - 140){
 
 clearInterval(chickWalk);
 
@@ -135,20 +151,56 @@ clearInterval(chickWalk);
 
 setTimeout(()=>{
 
-message.style.opacity = "1";
+finalMessage.style.opacity = "1";
 
 },3500);
 
 }
 
-/* ENTER KEY SUPPORT */
+// REPLAY
+if(replayBtn){
 
+replayBtn.addEventListener("click",()=>{
+
+typingStarted = false;
+finalStarted = false;
+
+const target = document.getElementById("typewriter");
+
+if(target){
+target.innerHTML = "";
+}
+
+document.getElementById("finalMessage").style.opacity = "0";
+
+document.getElementById("cat").style.left = "-250px";
+
+document.getElementById("chick").style.right = "-250px";
+
+currentPage = 0;
+
+showPage(currentPage);
+
+});
+
+}
+
+// KEYBOARD SUPPORT
 document.addEventListener("keydown",(e)=>{
 
 if(e.key === "ArrowRight"){
 
-nextPage();
+if(currentPage < pages.length - 1){
+
+currentPage++;
+
+showPage(currentPage);
+
+}
 
 }
 
 });
+
+// INITIAL PAGE
+showPage(0);
