@@ -1,27 +1,154 @@
-const openBtn = document.getElementById("openBtn");
+let currentPage = 0;
 
-openBtn.addEventListener("click",()=>{
+const pages = document.querySelectorAll(".page");
 
-document.getElementById("welcome-screen").style.opacity="0";
+const birthdayMessage = `Happy Birthday Vaishuuu ❤️
+
+Be happy as always like now.
+
+Edhuvum yosikadha...
+
+Ellam nalla nadakkum.
+
+Apram...
+
+All is well ✨
+
+Once again,
+
+Happy Birthday Dabba ❤️`;
+
+function showPage(index){
+
+pages.forEach(page=>{
+page.classList.remove("active");
+});
+
+pages[index].classList.add("active");
+
+if(index === 6){
+startTypewriter();
+}
+
+if(index === 7){
+startFinalAnimation();
+}
+
+}
+
+function openStory(){
+
+currentPage = 1;
+
+showPage(currentPage);
+
+}
+
+function nextPage(){
+
+if(currentPage < pages.length - 1){
+
+currentPage++;
+
+showPage(currentPage);
+
+}
+
+}
+
+/* TYPEWRITER */
+
+let typingStarted = false;
+
+function startTypewriter(){
+
+if(typingStarted) return;
+
+typingStarted = true;
+
+const target = document.getElementById("typewriter");
+
+let i = 0;
+
+function type(){
+
+if(i < birthdayMessage.length){
+
+target.innerHTML += birthdayMessage.charAt(i);
+
+i++;
+
+setTimeout(type,50);
+
+}
+
+}
+
+type();
+
+}
+
+/* FINAL ANIMATION */
+
+let finalStarted = false;
+
+function startFinalAnimation(){
+
+if(finalStarted) return;
+
+finalStarted = true;
+
+const cat = document.getElementById("cat");
+const chick = document.getElementById("chick");
+const message = document.getElementById("final-message");
+
+let catPos = -200;
+let chickPos = -200;
+
+const catWalk = setInterval(()=>{
+
+catPos += 5;
+
+cat.style.left = catPos + "px";
+
+if(catPos >= window.innerWidth / 2 - 130){
+
+clearInterval(catWalk);
+
+}
+
+},20);
+
+const chickWalk = setInterval(()=>{
+
+chickPos += 5;
+
+chick.style.right = chickPos + "px";
+
+if(chickPos >= window.innerWidth / 2 - 120){
+
+clearInterval(chickWalk);
+
+}
+
+},20);
 
 setTimeout(()=>{
 
-document.getElementById("welcome-screen").style.display="none";
+message.style.opacity = "1";
 
-document.getElementById("birthday-screen").style.display="block";
-
-},800);
-
-});
-
-function reveal(card){
-
-let img = card.querySelector("img");
-let text = card.querySelector("span");
-let tap = card.querySelector("p");
-
-img.style.display="block";
-text.style.display="block";
-tap.style.display="none";
+},3500);
 
 }
+
+/* ENTER KEY SUPPORT */
+
+document.addEventListener("keydown",(e)=>{
+
+if(e.key === "ArrowRight"){
+
+nextPage();
+
+}
+
+});
