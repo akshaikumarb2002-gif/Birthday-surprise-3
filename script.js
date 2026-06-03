@@ -1,11 +1,16 @@
-
 const openBtn = document.getElementById("openBtn");
 
-openBtn.addEventListener("click", () => {
+openBtn.addEventListener("click",()=>{
 
-document.getElementById("welcome-screen").style.display = "none";
+document.getElementById("welcome-screen").style.opacity="0";
 
-document.getElementById("birthday-screen").style.display = "block";
+setTimeout(()=>{
+
+document.getElementById("welcome-screen").style.display="none";
+
+document.getElementById("birthday-screen").style.display="block";
+
+},800);
 
 });
 
