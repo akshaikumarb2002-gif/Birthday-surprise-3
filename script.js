@@ -177,8 +177,8 @@ text.style.opacity="0";
 
 setTimeout(()=>{
 
-cat.style.left="38%";
-chick.style.right="38%";
+cat.style.left="30%";
+chick.style.right="30%";
 
 },300);
 
