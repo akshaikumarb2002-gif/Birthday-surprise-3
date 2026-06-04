@@ -1,39 +1,89 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Happy Birthday Vaishnavi ❤️</title><link rel="stylesheet" href="style.css"></head><body><!-- STARS --><div class="stars"></div><!-- SHOOTING STARS --><div class="shooting-star star1"></div>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Vaishnavi ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- STARS -->
+<div class="stars"></div>
+
+<!-- SHOOTING STARS -->
+<div class="shooting-star star1"></div>
 <div class="shooting-star star2"></div>
-<div class="shooting-star star3"></div><!-- ========================= --><!-- COVER PAGE --><!-- ========================= --><section id="coverPage" class="page active"><img
+<div class="shooting-star star3"></div>
+
+<!-- ========================= -->
+<!-- COVER PAGE -->
+<!-- ========================= -->
+
+<section id="coverPage" class="page active">
+
+<img
 src="cover.png"
 class="cover-image"
 alt="cover">
 
-<div class="cover-overlay"><div id="countdownBox"><h2>
-⏳ Surprise Starts In
-</h2><div id="countdown">
-10
-</div></div><h1 class="cover-title">
+<div class="cover-overlay">
+
+<h1 class="cover-title">
+🎂 Happy Birthday
+</h1>
+
+<h2 class="cover-name">
 Dabbaaa ❤️
-</h1><p class="cover-subtitle">
+</h2>
+
+<p class="cover-subtitle">
 A Special Surprise ✨
-</p><button
-id="openBtn"
+</p>
+
+<button
 class="main-btn"
-onclick="startMemories()"
-style="display:none;">
+onclick="startMemories()">
 
 Open ❤️
 
-</button></div></section><!-- ========================= --><!-- MEMORY PAGE --><!-- ========================= --><section id="memoryPage" class="page"><div class="memory-card"><h2 id="memoryTitle">
+</button>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- MEMORY PAGE -->
+<!-- ========================= -->
+
+<section id="memoryPage" class="page">
+
+<div class="memory-card">
+
+<h2 id="memoryTitle">
 🎁 Memory Surprise ✨
-</h2><div id="memoryClosed"><button
+</h2>
+
+<div id="memoryClosed">
+
+<button
 class="gift-btn"
 onclick="openMemory()">
 
-🎁 Click to Open Memory ❤️
+🎁 Click To Open Memory ❤️
 
-</button></div><div
-id="memoryOpened"
-style="display:none;"><img
+</button>
+
+</div>
+
+<div id="memoryOpened" style="display:none;">
+
+<img
 id="memoryImage"
 class="memory-image"
 src="photo1.jpg"
@@ -41,46 +91,92 @@ alt="memory">
 
 <h3 id="memoryCaption">
 Vaishnavi ❤️
-</h3><button
+</h3>
+
+<button
 class="next-btn"
 onclick="nextMemory()">
 
 Next →
 
-</button></div></div></section><!-- ========================= --><!-- SPECIAL NOTE PAGE --><!-- ========================= --><section id="notePage" class="page"><div class="note-card"><div id="noteClosed"><button
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- SPECIAL NOTE PAGE -->
+<!-- ========================= -->
+
+<section id="notePage" class="page">
+
+<div class="note-card">
+
+<div id="noteClosed">
+
+<button
 class="gift-btn"
 onclick="openNote()">
 
-💌 Click to Open Special Note ❤️
+💌 Open Special Note ❤️
 
-</button></div><div
-id="noteOpened"
-style="display:none;"><h2>
+</button>
+
+</div>
+
+<div id="noteOpened" style="display:none;">
+
+<h2>
 Special Note ❤️
-</h2><div
+</h2>
+
+<div
 id="typewriter"
 class="note-text">
-</div><button
+</div>
+
+<button
 class="next-btn"
 onclick="showLovePage()">
 
 Continue ❤️
 
-</button></div></div></section><!-- ========================= --><!-- LOVE LETTER PAGE --><!-- ========================= --><section id="lovePage" class="page"><div class="note-card"><h2>
-💌 A Small Letter For You
-</h2><div
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- LOVE LETTER PAGE -->
+<!-- ========================= -->
+
+<section id="lovePage" class="page">
+
+<div class="note-card">
+
+<h2>
+💌 A Letter For You
+</h2>
+
+<div
 id="loveLetter"
-class="note-text">Happy Birthday Dabba ❤️
+class="note-text">
+
+Happy Birthday Dabba ❤️
 
 Thank you for being such a wonderful person.
 
-May your smile always remain the same.
+May your smile always stay the same.
 
 May all your dreams come true.
 
-No matter what happens,
-
-always stay happy ✨
+Always stay happy and keep shining ✨
 
 You deserve all the happiness in the world ❤️
 
@@ -88,37 +184,78 @@ Once again,
 
 Happy Birthday Vaishuuu ❤️
 
-</div><button
+</div>
+
+<button
 class="next-btn"
 onclick="showFinalPage()">
 
 Celebrate 🎉
 
-</button></div></section><!-- ========================= --><!-- FINAL PAGE --><!-- ========================= --><section id="finalPage" class="page"><div id="confettiContainer"></div><div class="final-container"><div
+</button>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- FINAL PAGE -->
+<!-- ========================= -->
+
+<section id="finalPage" class="page">
+
+<div id="confettiContainer"></div>
+
+<div class="final-container">
+
+<div
 id="cat"
-class="cat-character">🐱
+class="cat-character">
+🐱
+</div>
 
-</div><div
+<div
 id="heart"
-class="heart-center">❤️
+class="heart-center">
+❤️
+</div>
 
-</div><div
+<div
 id="chick"
-class="chick-character">🐥
+class="chick-character">
+🐥
+</div>
 
-</div><div
+<div
 id="finalText"
-class="final-text"><h1>🎂 Happy Birthday
+class="final-text">
+
+<h1>
+🎂 Happy Birthday
 <br>
 Vaishnavi ❤️
+</h1>
 
-</h1><p>More beautiful memories await...
+<p>
+More beautiful memories await...
 ✨
+</p>
 
-</p><button
+<button
 class="main-btn"
 onclick="replayStory()">
 
 ❤️ Replay Memories ❤️
 
-</button></div></div></section><script src="script.js"></script></body></html>
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>
