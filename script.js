@@ -22,7 +22,6 @@ caption:"My Favourite Person ❤️"
 ];
 
 let currentMemory = 0;
-let countdown = 10;
 
 /* ========================= /
 / PAGE SWITCH /
@@ -40,48 +39,6 @@ document.getElementById(pageId)
 .classList.add("active");
 
 window.scrollTo(0,0);
-
-}
-
-/* ========================= /
-/ COUNTDOWN /
-/ ========================= */
-
-function startCountdown(){
-
-const timer =
-document.getElementById("countdown");
-
-const openBtn =
-document.getElementById("openBtn");
-
-if(!timer || !openBtn) return;
-
-openBtn.style.display = "none";
-
-timer.innerText = countdown;
-
-const interval = setInterval(()=>{
-
-countdown--;
-
-if(countdown > 0){
-
-timer.innerText = countdown;
-
-}else{
-
-clearInterval(interval);
-
-timer.innerHTML =
-"🎉 Happy Birthday 🎉";
-
-openBtn.style.display =
-"inline-block";
-
-}
-
-},1000);
 
 }
 
@@ -268,7 +225,6 @@ confetti.style.fontSize =
 container.appendChild(confetti);
 
 confetti.animate(
-
 [
 {
 transform:
@@ -279,13 +235,11 @@ transform:
 "translateY(110vh) rotate(720deg)"
 }
 ],
-
 {
 duration:
 3000 + Math.random()*3000,
 iterations:1
 }
-
 );
 
 }
@@ -314,15 +268,11 @@ document.getElementById("heart");
 const text =
 document.getElementById("finalText");
 
-/* RESET */
-
 cat.style.left = "-120px";
 chick.style.right = "-120px";
 
 heart.style.opacity = "0";
 text.style.opacity = "0";
-
-/* WALK */
 
 setTimeout(()=>{
 
@@ -331,15 +281,11 @@ chick.style.right = "28%";
 
 },300);
 
-/* HEART */
-
 setTimeout(()=>{
 
 heart.style.opacity = "1";
 
 },4200);
-
-/* TEXT */
 
 setTimeout(()=>{
 
@@ -356,8 +302,6 @@ text.style.opacity = "1";
 function replayStory(){
 
 currentMemory = 0;
-
-countdown = 10;
 
 showPage("coverPage");
 
@@ -380,14 +324,6 @@ document.getElementById("memoryTitle")
 .innerText =
 "🎁 Memory Surprise ✨";
 
-document.getElementById("countdown")
-.innerText = "10";
-
-document.getElementById("openBtn")
-.style.display = "none";
-
-startCountdown();
-
 }
 
 /* ========================= /
@@ -397,7 +333,5 @@ startCountdown();
 window.onload = function(){
 
 showPage("coverPage");
-
-startCountdown();
 
 };
