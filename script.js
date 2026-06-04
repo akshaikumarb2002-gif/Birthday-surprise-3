@@ -40,6 +40,39 @@ window.scrollTo(0,0);
 }
 
 /* ========================= /
+/ COUNTDOWN /
+/ ========================= */
+
+let countdown = 10;
+
+function startCountdown(){
+
+const timer =
+document.getElementById("countdown");
+
+const interval = setInterval(()=>{
+
+countdown--;
+
+if(timer){
+
+timer.innerText = countdown;
+
+}
+
+if(countdown <= 0){
+
+clearInterval(interval);
+
+timer.innerText = "🎉";
+
+}
+
+},1000);
+
+}
+
+/* ========================= /
 / START MEMORIES /
 / ========================= */
 
@@ -136,7 +169,7 @@ Happy Birthday Dabba ❤️`;
 const target =
 document.getElementById("typewriter");
 
-target.innerHTML = "";
+target.innerHTML="";
 
 let i = 0;
 
@@ -157,12 +190,72 @@ clearInterval(typing);
 }
 
 /* ========================= /
+/ LOVE PAGE /
+/ ========================= */
+
+function showLovePage(){
+
+showPage("lovePage");
+
+}
+
+/* ========================= /
+/ CONFETTI /
+/ ========================= */
+
+function launchConfetti(){
+
+const container =
+document.getElementById("confettiContainer");
+
+container.innerHTML = "";
+
+for(let i=0;i<100;i++){
+
+const confetti =
+document.createElement("div");
+
+confetti.innerHTML =
+["🎉","🎊","✨","💖"][Math.floor(Math.random()*4)];
+
+confetti.style.position="absolute";
+confetti.style.left=Math.random()*100+"vw";
+confetti.style.top="-50px";
+confetti.style.fontSize=(20+Math.random()*25)+"px";
+
+container.appendChild(confetti);
+
+confetti.animate([
+
+{
+transform:"translateY(0) rotate(0deg)"
+},
+
+{
+transform:
+"translateY(110vh) rotate(720deg)"
+}
+
+],{
+
+duration:3000 + Math.random()*3000,
+iterations:1
+
+});
+
+}
+
+}
+
+/* ========================= /
 / FINAL PAGE /
 / ========================= */
 
 function showFinalPage(){
 
 showPage("finalPage");
+
+launchConfetti();
 
 const cat =
 document.getElementById("cat");
@@ -219,6 +312,8 @@ function replayStory(){
 
 currentMemory = 0;
 
+countdown = 10;
+
 showPage("coverPage");
 
 document.getElementById("memoryClosed").style.display="block";
@@ -232,6 +327,11 @@ document.getElementById("typewriter").innerHTML="";
 document.getElementById("memoryTitle").innerText =
 "🎁 Memory Surprise ✨";
 
+document.getElementById("countdown").innerText =
+"10";
+
+startCountdown();
+
 }
 
 /* ========================= /
@@ -241,5 +341,7 @@ document.getElementById("memoryTitle").innerText =
 window.onload = function(){
 
 showPage("coverPage");
+
+startCountdown();
 
 };
