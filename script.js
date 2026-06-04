@@ -8,7 +8,7 @@ image:"photo2.jpg",
 caption:"Vaishuuu ❤️"
 },
 {
-image:"photo3.jpg",
+image:"IMG_20260604_225225.jpg",
 caption:"Dabba ❤️"
 },
 {
