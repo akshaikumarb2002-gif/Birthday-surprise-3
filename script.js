@@ -1,6 +1,6 @@
-// ======================
+// ===============================
 // MEMORY DATA
-// ======================
+// ===============================
 
 const memories = [
 {
@@ -30,67 +30,56 @@ caption:"My Favourite Person ❤️"
 }
 ];
 
-// ======================
-// PAGE ELEMENTS
-// ======================
+// ===============================
+// ELEMENTS
+// ===============================
 
 const coverPage = document.getElementById("coverPage");
 const memoryPage = document.getElementById("memoryPage");
 const notePage = document.getElementById("notePage");
 const finalPage = document.getElementById("finalPage");
 
-const memoryTitle =
-document.getElementById("memoryTitle");
+const memoryTitle = document.getElementById("memoryTitle");
+const memoryImage = document.getElementById("memoryImage");
+const memoryCaption = document.getElementById("memoryCaption");
 
-const memoryImage =
-document.getElementById("memoryImage");
+const memoryClosed = document.getElementById("memoryClosed");
+const memoryOpened = document.getElementById("memoryOpened");
 
-const memoryCaption =
-document.getElementById("memoryCaption");
+const noteClosed = document.getElementById("noteClosed");
+const noteOpened = document.getElementById("noteOpened");
 
-const memoryClosed =
-document.getElementById("memoryClosed");
+const typewriter = document.getElementById("typewriter");
 
-const memoryOpened =
-document.getElementById("memoryOpened");
-
-const noteClosed =
-document.getElementById("noteClosed");
-
-const noteOpened =
-document.getElementById("noteOpened");
-
-const typewriter =
-document.getElementById("typewriter");
-
-// ======================
-// CURRENT MEMORY
-// ======================
+// ===============================
+// STATE
+// ===============================
 
 let currentMemory = 0;
+let typingStarted = false;
 
-// ======================
-// OPEN COVER
-// ======================
+// ===============================
+// START STORY
+// ===============================
 
 function startMemories(){
 
 coverPage.classList.remove("active");
-
 memoryPage.classList.add("active");
+
+currentMemory = 0;
 
 loadMemory();
 
 }
 
-// ======================
+// ===============================
 // LOAD MEMORY
-// ======================
+// ===============================
 
 function loadMemory(){
 
 memoryClosed.style.display = "block";
-
 memoryOpened.style.display = "none";
 
 memoryTitle.innerHTML =
@@ -104,21 +93,20 @@ memories[currentMemory].caption;
 
 }
 
-// ======================
+// ===============================
 // OPEN MEMORY
-// ======================
+// ===============================
 
 function openMemory(){
 
 memoryClosed.style.display = "none";
-
 memoryOpened.style.display = "block";
 
 }
 
-// ======================
+// ===============================
 // NEXT MEMORY
-// ======================
+// ===============================
 
 function nextMemory(){
 
@@ -128,33 +116,37 @@ if(currentMemory < memories.length){
 
 loadMemory();
 
-return;
-
-}
+}else{
 
 memoryPage.classList.remove("active");
-
 notePage.classList.add("active");
 
 }
 
-// ======================
+}
+
+// ===============================
 // OPEN NOTE
-// ======================
+// ===============================
 
 function openNote(){
 
 noteClosed.style.display = "none";
-
 noteOpened.style.display = "block";
 
 startTypewriter();
 
 }
 
-// ======================
+// ===============================
 // TYPEWRITER
-// ======================
+// ===============================
+
+function startTypewriter(){
+
+if(typingStarted) return;
+
+typingStarted = true;
 
 const message = `Happy Birthday Vaishuuu ❤️
 
@@ -172,13 +164,7 @@ Once again,
 
 Happy Birthday Dabba ❤️`;
 
-let typingStarted = false;
-
-function startTypewriter(){
-
-if(typingStarted) return;
-
-typingStarted = true;
+typewriter.innerHTML = "";
 
 let i = 0;
 
@@ -186,8 +172,7 @@ function type(){
 
 if(i < message.length){
 
-typewriter.innerHTML +=
-message.charAt(i);
+typewriter.innerHTML += message.charAt(i);
 
 i++;
 
@@ -201,21 +186,14 @@ type();
 
 }
 
-// ======================
+// ===============================
 // FINAL PAGE
-// ======================
+// ===============================
 
 function showFinalPage(){
 
 notePage.classList.remove("active");
-
 finalPage.classList.add("active");
-
-const cat =
-document.getElementById("cat");
-
-const chick =
-document.getElementById("chick");
 
 const heart =
 document.getElementById("heart");
@@ -237,34 +215,43 @@ finalText.style.opacity = "1";
 
 }
 
-// ======================
-// REPLAY
-// ======================
+// ===============================
+// REPLAY STORY
+// ===============================
 
 function replayStory(){
 
-location.reload();
+typingStarted = false;
+
+typewriter.innerHTML = "";
+
+coverPage.classList.add("active");
+
+memoryPage.classList.remove("active");
+notePage.classList.remove("active");
+finalPage.classList.remove("active");
+
+memoryClosed.style.display = "block";
+memoryOpened.style.display = "none";
+
+noteClosed.style.display = "block";
+noteOpened.style.display = "none";
+
+currentMemory = 0;
+
+loadMemory();
+
+window.scrollTo(0,0);
 
 }
 
-// ======================
-// BUTTON FIX
-// ======================
+// ===============================
+// EXPOSE FUNCTIONS
+// ===============================
 
-window.startMemories =
-startMemories;
-
-window.openMemory =
-openMemory;
-
-window.nextMemory =
-nextMemory;
-
-window.openNote =
-openNote;
-
-window.showFinalPage =
-showFinalPage;
-
-window.replayStory =
-replayStory;
+window.startMemories = startMemories;
+window.openMemory = openMemory;
+window.nextMemory = nextMemory;
+window.openNote = openNote;
+window.showFinalPage = showFinalPage;
+window.replayStory = replayStory;
