@@ -22,6 +22,7 @@ caption:"My Favourite Person ❤️"
 ];
 
 let currentMemory = 0;
+let countdown = 10;
 
 /* ========================= /
 / PAGE SWITCH /
@@ -30,10 +31,13 @@ let currentMemory = 0;
 function showPage(pageId){
 
 document.querySelectorAll(".page").forEach(page=>{
+
 page.classList.remove("active");
+
 });
 
-document.getElementById(pageId).classList.add("active");
+document.getElementById(pageId)
+.classList.add("active");
 
 window.scrollTo(0,0);
 
@@ -43,28 +47,37 @@ window.scrollTo(0,0);
 / COUNTDOWN /
 / ========================= */
 
-let countdown = 10;
-
 function startCountdown(){
 
 const timer =
 document.getElementById("countdown");
 
+const openBtn =
+document.getElementById("openBtn");
+
+if(!timer || !openBtn) return;
+
+openBtn.style.display = "none";
+
+timer.innerText = countdown;
+
 const interval = setInterval(()=>{
 
 countdown--;
 
-if(timer){
+if(countdown > 0){
 
 timer.innerText = countdown;
 
-}
-
-if(countdown <= 0){
+}else{
 
 clearInterval(interval);
 
-timer.innerText = "🎉";
+timer.innerHTML =
+"🎉 Happy Birthday 🎉";
+
+openBtn.style.display =
+"inline-block";
 
 }
 
@@ -80,8 +93,11 @@ function startMemories(){
 
 showPage("memoryPage");
 
-document.getElementById("memoryClosed").style.display="block";
-document.getElementById("memoryOpened").style.display="none";
+document.getElementById("memoryClosed")
+.style.display = "block";
+
+document.getElementById("memoryOpened")
+.style.display = "none";
 
 currentMemory = 0;
 
@@ -93,8 +109,11 @@ currentMemory = 0;
 
 function openMemory(){
 
-document.getElementById("memoryClosed").style.display="none";
-document.getElementById("memoryOpened").style.display="block";
+document.getElementById("memoryClosed")
+.style.display = "none";
+
+document.getElementById("memoryOpened")
+.style.display = "block";
 
 loadMemory();
 
@@ -106,13 +125,18 @@ loadMemory();
 
 function loadMemory(){
 
-document.getElementById("memoryTitle").innerText =
-"🎁 Memory " + (currentMemory + 1) + " ✨";
+document.getElementById("memoryTitle")
+.innerText =
+"🎁 Memory " +
+(currentMemory + 1) +
+" ✨";
 
-document.getElementById("memoryImage").src =
+document.getElementById("memoryImage")
+.src =
 memories[currentMemory].image;
 
-document.getElementById("memoryCaption").innerText =
+document.getElementById("memoryCaption")
+.innerText =
 memories[currentMemory].caption;
 
 }
@@ -127,15 +151,21 @@ currentMemory++;
 
 if(currentMemory < memories.length){
 
-document.getElementById("memoryClosed").style.display="block";
-document.getElementById("memoryOpened").style.display="none";
+document.getElementById("memoryClosed")
+.style.display = "block";
+
+document.getElementById("memoryOpened")
+.style.display = "none";
 
 }else{
 
 showPage("notePage");
 
-document.getElementById("noteClosed").style.display="block";
-document.getElementById("noteOpened").style.display="none";
+document.getElementById("noteClosed")
+.style.display = "block";
+
+document.getElementById("noteOpened")
+.style.display = "none";
 
 }
 
@@ -147,8 +177,11 @@ document.getElementById("noteOpened").style.display="none";
 
 function openNote(){
 
-document.getElementById("noteClosed").style.display="none";
-document.getElementById("noteOpened").style.display="block";
+document.getElementById("noteClosed")
+.style.display = "none";
+
+document.getElementById("noteOpened")
+.style.display = "block";
 
 const message = `Happy Birthday Vaishuuu ❤️
 
@@ -169,13 +202,14 @@ Happy Birthday Dabba ❤️`;
 const target =
 document.getElementById("typewriter");
 
-target.innerHTML="";
+target.innerHTML = "";
 
 let i = 0;
 
 const typing = setInterval(()=>{
 
-target.innerHTML += message.charAt(i);
+target.innerHTML +=
+message.charAt(i);
 
 i++;
 
@@ -210,38 +244,49 @@ document.getElementById("confettiContainer");
 
 container.innerHTML = "";
 
-for(let i=0;i<100;i++){
+for(let i=0;i<120;i++){
 
 const confetti =
 document.createElement("div");
 
 confetti.innerHTML =
-["🎉","🎊","✨","💖"][Math.floor(Math.random()*4)];
+["🎉","🎊","✨","💖"]
+[Math.floor(Math.random()*4)];
 
-confetti.style.position="absolute";
-confetti.style.left=Math.random()*100+"vw";
-confetti.style.top="-50px";
-confetti.style.fontSize=(20+Math.random()*25)+"px";
+confetti.style.position =
+"absolute";
+
+confetti.style.left =
+Math.random()*100 + "vw";
+
+confetti.style.top =
+"-50px";
+
+confetti.style.fontSize =
+(20 + Math.random()*25) + "px";
 
 container.appendChild(confetti);
 
-confetti.animate([
+confetti.animate(
 
+[
 {
-transform:"translateY(0) rotate(0deg)"
+transform:
+"translateY(0) rotate(0deg)"
 },
-
 {
 transform:
 "translateY(110vh) rotate(720deg)"
 }
+],
 
-],{
-
-duration:3000 + Math.random()*3000,
+{
+duration:
+3000 + Math.random()*3000,
 iterations:1
+}
 
-});
+);
 
 }
 
@@ -271,18 +316,18 @@ document.getElementById("finalText");
 
 /* RESET */
 
-cat.style.left="-120px";
-chick.style.right="-120px";
+cat.style.left = "-120px";
+chick.style.right = "-120px";
 
-heart.style.opacity="0";
-text.style.opacity="0";
+heart.style.opacity = "0";
+text.style.opacity = "0";
 
 /* WALK */
 
 setTimeout(()=>{
 
-cat.style.left="30%";
-chick.style.right="30%";
+cat.style.left = "28%";
+chick.style.right = "28%";
 
 },300);
 
@@ -290,7 +335,7 @@ chick.style.right="30%";
 
 setTimeout(()=>{
 
-heart.style.opacity="1";
+heart.style.opacity = "1";
 
 },4200);
 
@@ -298,7 +343,7 @@ heart.style.opacity="1";
 
 setTimeout(()=>{
 
-text.style.opacity="1";
+text.style.opacity = "1";
 
 },5200);
 
@@ -316,19 +361,30 @@ countdown = 10;
 
 showPage("coverPage");
 
-document.getElementById("memoryClosed").style.display="block";
-document.getElementById("memoryOpened").style.display="none";
+document.getElementById("memoryClosed")
+.style.display = "block";
 
-document.getElementById("noteClosed").style.display="block";
-document.getElementById("noteOpened").style.display="none";
+document.getElementById("memoryOpened")
+.style.display = "none";
 
-document.getElementById("typewriter").innerHTML="";
+document.getElementById("noteClosed")
+.style.display = "block";
 
-document.getElementById("memoryTitle").innerText =
+document.getElementById("noteOpened")
+.style.display = "none";
+
+document.getElementById("typewriter")
+.innerHTML = "";
+
+document.getElementById("memoryTitle")
+.innerText =
 "🎁 Memory Surprise ✨";
 
-document.getElementById("countdown").innerText =
-"10";
+document.getElementById("countdown")
+.innerText = "10";
+
+document.getElementById("openBtn")
+.style.display = "none";
 
 startCountdown();
 
