@@ -1,164 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Happy Birthday Vaishnavi ❤️</title>
 
 <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
 <!-- STARS -->
 <div class="stars"></div>
+
+<!-- SHOOTING STARS -->
 <div class="shooting-star star1"></div>
 <div class="shooting-star star2"></div>
 <div class="shooting-star star3"></div>
 
-<!-- ================= COVER ================= -->
+<!-- ========================= -->
+<!-- COVER PAGE -->
+<!-- ========================= -->
 
 <section id="coverPage" class="page active">
 
-    <img src="cover.png" class="cover-image" alt="Cover">
+<img
+src="cover.png"
+class="cover-image"
+alt="cover">
 
-    <div class="cover-overlay">
+<div class="cover-overlay">
 
-        <h1 class="cover-title">
-            Dabbaaa.... ❤️
-        </h1>
+<h1 class="cover-title">
+Dabbaaa.... ❤️
+</h1>
 
-        <p class="cover-subtitle">
-            A little surprise for you ✨
-        </p>
+<p class="cover-subtitle">
+A little surprise for you ✨
+</p>
 
-        <button class="main-btn" onclick="startMemories()">
-            Open ❤️
-        </button>
+<button
+class="main-btn"
+onclick="startMemories()">
 
-    </div>
+Open ❤️
+
+</button>
+
+</div>
 
 </section>
 
-<!-- ================= MEMORY PAGE ================= -->
+<!-- ========================= -->
+<!-- MEMORY PAGE -->
+<!-- ========================= -->
 
 <section id="memoryPage" class="page">
 
-    <div class="memory-card">
+<div class="memory-card">
 
-        <h2 id="memoryTitle">
-            🐱 A little memory ✨
-        </h2>
+<h2 id="memoryTitle">
+🐱 A little memory ✨
+</h2>
 
-        <div id="memoryClosed">
+<!-- CLOSED MEMORY -->
 
-            <button class="gift-btn" onclick="openMemory()">
-                🎁 Click to Open Memory ❤️
-            </button>
+<div id="memoryClosed">
 
-        </div>
+<button
+class="gift-btn"
+onclick="openMemory()">
 
-        <div id="memoryOpened" style="display:none;">
+🎁 Click to Open Memory ❤️
 
-            <img id="memoryImage"
-                 class="memory-image"
-                 src="photo1.jpg"
-                 alt="Memory">
+</button>
 
-            <h3 id="memoryCaption">
-                Vaishnavi ❤️
-            </h3>
+</div>
 
-            <button
-                class="next-btn"
-                onclick="nextMemory()">
-                Next →
-            </button>
+<!-- OPEN MEMORY -->
 
-        </div>
+<div
+id="memoryOpened"
+style="display:none;">
 
-    </div>
+<img
+id="memoryImage"
+class="memory-image"
+src="photo1.jpg"
+alt="memory">
+
+<h3 id="memoryCaption">
+Vaishnavi ❤️
+</h3>
+
+<button
+class="next-btn"
+onclick="nextMemory()">
+
+Next →
+
+</button>
+
+</div>
+
+</div>
 
 </section>
 
-<!-- ================= NOTE PAGE ================= -->
+<!-- ========================= -->
+<!-- SPECIAL NOTE PAGE -->
+<!-- ========================= -->
 
 <section id="notePage" class="page">
 
-    <div class="note-card">
+<div class="note-card">
 
-        <div id="noteClosed">
+<!-- CLOSED NOTE -->
 
-            <button class="gift-btn" onclick="openNote()">
-                💌 Click to Open Special Note ❤️
-            </button>
+<div id="noteClosed">
 
-        </div>
+<button
+class="gift-btn"
+onclick="openNote()">
 
-        <div id="noteOpened" style="display:none;">
+💌 Click to Open Special Note ❤️
 
-            <h2>
-                Special Note ❤️
-            </h2>
+</button>
 
-            <div id="typewriter" class="note-text"></div>
+</div>
 
-            <button
-                class="next-btn"
-                onclick="showFinalPage()">
-                Continue ✨
-            </button>
+<!-- OPEN NOTE -->
 
-        </div>
+<div
+id="noteOpened"
+style="display:none;">
 
-    </div>
+<h2>
+Special Note ❤️
+</h2>
+
+<div
+id="typewriter"
+class="note-text">
+</div>
+
+<button
+class="next-btn"
+onclick="showFinalPage()">
+
+Continue ✨
+
+</button>
+
+</div>
+
+</div>
 
 </section>
 
-<!-- ================= FINAL PAGE ================= -->
+<!-- ========================= -->
+<!-- FINAL PAGE -->
+<!-- ========================= -->
 
 <section id="finalPage" class="page">
 
-    <div class="final-container">
+<div class="final-container">
 
-        <img
-            src="cat.png"
-            id="cat"
-            class="cat-character"
-            alt="cat">
+<!-- CAT -->
 
-        <img
-            src="chick.png"
-            id="chick"
-            class="chick-character"
-            alt="chick">
+<img
+src="cat.png"
+id="cat"
+class="cat-character"
+alt="cat">
 
-        <div id="heart" class="heart-center">
-            ❤️
-        </div>
+<!-- CHICK -->
 
-        <div id="finalText" class="final-text">
+<img
+src="chick.png"
+id="chick"
+class="chick-character"
+alt="chick">
 
-            <h1>
-                Happy Birthday
-                <br>
-                Vaishnavi ❤️
-            </h1>
+<!-- HEART -->
 
-            <p>
-                More beautiful memories await...
-                ✨
-            </p>
+<div
+id="heart"
+class="heart-center">
 
-            <button
-                class="main-btn"
-                onclick="location.reload()">
-                ❤️ Replay Memories ❤️
-            </button>
+❤️
 
-        </div>
+</div>
 
-    </div>
+<!-- FINAL TEXT -->
+
+<div
+id="finalText"
+class="final-text">
+
+<h1>
+
+Happy Birthday
+<br>
+Vaishnavi ❤️
+
+</h1>
+
+<p>
+
+More beautiful memories await...
+✨
+
+</p>
+
+<button
+class="main-btn"
+onclick="replayStory()">
+
+❤️ Replay Memories ❤️
+
+</button>
+
+</div>
+
+</div>
 
 </section>
 
