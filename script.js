@@ -1,115 +1,62 @@
-
-// ===============================
-// MEMORY DATA
-// ===============================
-
 const memories = [
 {
-title:"🐱 A little memory ✨",
 image:"photo1.jpg",
 caption:"Vaishnavi ❤️"
 },
 {
-title:"🐥 Another special moment ✨",
 image:"photo2.jpg",
 caption:"Vaishuuu ❤️"
 },
 {
-title:"🐱 This one makes me smile ❤️",
 image:"photo3.jpg",
 caption:"Dabba ❤️"
 },
 {
-title:"🐥 A moment worth keeping 🌙",
 image:"photo4.jpg",
 caption:"Vaishnavi ✨"
 },
 {
-title:"🐱 My Favourite Surprise ✨",
 image:"photo5.jpg",
 caption:"My Favourite Person ❤️"
 }
 ];
 
-// ===============================
-// ELEMENTS
-// ===============================
-
-const coverPage = document.getElementById("coverPage");
-const memoryPage = document.getElementById("memoryPage");
-const notePage = document.getElementById("notePage");
-const finalPage = document.getElementById("finalPage");
-
-const memoryTitle = document.getElementById("memoryTitle");
-const memoryImage = document.getElementById("memoryImage");
-const memoryCaption = document.getElementById("memoryCaption");
-
-const memoryClosed = document.getElementById("memoryClosed");
-const memoryOpened = document.getElementById("memoryOpened");
-
-const noteClosed = document.getElementById("noteClosed");
-const noteOpened = document.getElementById("noteOpened");
-
-const typewriter = document.getElementById("typewriter");
-
-// ===============================
-// STATE
-// ===============================
-
 let currentMemory = 0;
-let typingStarted = false;
 
-// ===============================
-// START MEMORIES
-// ===============================
+function showPage(pageId){
+
+document.querySelectorAll(".page").forEach(page=>{
+page.classList.remove("active");
+});
+
+document.getElementById(pageId).classList.add("active");
+}
 
 function startMemories(){
 
-coverPage.classList.remove("active");
+showPage("memoryPage");
 
-memoryPage.classList.add("active");
-
-currentMemory = 0;
-
-loadMemory();
-
+document.getElementById("memoryClosed").style.display="block";
+document.getElementById("memoryOpened").style.display="none";
 }
-
-// ===============================
-// LOAD MEMORY
-// ===============================
-
-function loadMemory(){
-
-memoryClosed.style.display = "block";
-memoryOpened.style.display = "none";
-
-memoryTitle.innerHTML =
-memories[currentMemory].title;
-
-memoryImage.src =
-memories[currentMemory].image;
-
-memoryCaption.innerHTML =
-memories[currentMemory].caption;
-
-}
-
-// ===============================
-// OPEN MEMORY
-// ===============================
 
 function openMemory(){
 
-memoryClosed.style.display = "none";
+document.getElementById("memoryClosed").style.display="none";
+document.getElementById("memoryOpened").style.display="block";
 
-memoryOpened.style.display = "block";
-
+currentMemory=0;
+loadMemory();
 }
 
-// ===============================
-// NEXT MEMORY
-// ===============================
+function loadMemory(){
+
+document.getElementById("memoryImage").src =
+memories[currentMemory].image;
+
+document.getElementById("memoryCaption").innerText =
+memories[currentMemory].caption;
+}
 
 function nextMemory(){
 
@@ -119,40 +66,19 @@ if(currentMemory < memories.length){
 
 loadMemory();
 
+}else{
+
+showPage("notePage");
+
+document.getElementById("noteClosed").style.display="block";
+document.getElementById("noteOpened").style.display="none";
 }
-else{
-
-memoryPage.classList.remove("active");
-
-notePage.classList.add("active");
-
 }
-
-}
-
-// ===============================
-// OPEN NOTE
-// ===============================
 
 function openNote(){
 
-noteClosed.style.display = "none";
-
-noteOpened.style.display = "block";
-
-startTypewriter();
-
-}
-
-// ===============================
-// TYPEWRITER EFFECT
-// ===============================
-
-function startTypewriter(){
-
-if(typingStarted) return;
-
-typingStarted = true;
+document.getElementById("noteClosed").style.display="none";
+document.getElementById("noteOpened").style.display="block";
 
 const message = `Happy Birthday Vaishuuu ❤️
 
@@ -170,96 +96,72 @@ Once again,
 
 Happy Birthday Dabba ❤️`;
 
-typewriter.innerHTML = "";
+const target =
+document.getElementById("typewriter");
 
-let i = 0;
+target.innerHTML="";
 
-function type(){
+let i=0;
 
-if(i < message.length){
+const typing = setInterval(()=>{
 
-typewriter.innerHTML +=
-message.charAt(i);
+target.innerHTML += message.charAt(i);
 
 i++;
 
-setTimeout(type,40);
+if(i>=message.length){
 
+clearInterval(typing);
 }
 
+},35);
 }
-
-type();
-
-}
-
-// ===============================
-// SHOW FINAL PAGE
-// ===============================
 
 function showFinalPage(){
 
-notePage.classList.remove("active");
+showPage("finalPage");
 
-finalPage.classList.add("active");
+const cat =
+document.getElementById("cat");
+
+const chick =
+document.getElementById("chick");
 
 const heart =
 document.getElementById("heart");
 
-const finalText =
+const text =
 document.getElementById("finalText");
 
+cat.style.left="-120px";
+chick.style.right="-120px";
+
+heart.style.opacity="0";
+text.style.opacity="0";
+
 setTimeout(()=>{
 
-heart.style.opacity = "1";
+cat.style.left="38%";
+chick.style.right="38%";
+
+},100);
+
+setTimeout(()=>{
+
+heart.style.opacity="1";
+
+},4000);
+
+setTimeout(()=>{
+
+text.style.opacity="1";
 
 },5000);
-
-setTimeout(()=>{
-
-finalText.style.opacity = "1";
-
-},6000);
-
 }
-
-// ===============================
-// REPLAY STORY
-// ===============================
 
 function replayStory(){
 
-typingStarted = false;
+currentMemory=0;
 
-typewriter.innerHTML = "";
-
-coverPage.classList.add("active");
-
-memoryPage.classList.remove("active");
-notePage.classList.remove("active");
-finalPage.classList.remove("active");
-
-memoryClosed.style.display = "block";
-memoryOpened.style.display = "none";
-
-noteClosed.style.display = "block";
-noteOpened.style.display = "none";
-
-currentMemory = 0;
-
-loadMemory();
-
-window.scrollTo(0,0);
-
+showPage("coverPage");
 }
-
-// ===============================
-// GLOBAL FUNCTIONS
-// ===============================
-
-window.startMemories = startMemories;
-window.openMemory = openMemory;
-window.nextMemory = nextMemory;
-window.openNote = openNote;
-window.showFinalPage = showFinalPage;
-window.replayStory = replayStory;
