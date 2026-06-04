@@ -1,3 +1,4 @@
+
 // ===============================
 // MEMORY DATA
 // ===============================
@@ -59,12 +60,13 @@ let currentMemory = 0;
 let typingStarted = false;
 
 // ===============================
-// START STORY
+// START MEMORIES
 // ===============================
 
 function startMemories(){
 
 coverPage.classList.remove("active");
+
 memoryPage.classList.add("active");
 
 currentMemory = 0;
@@ -100,6 +102,7 @@ memories[currentMemory].caption;
 function openMemory(){
 
 memoryClosed.style.display = "none";
+
 memoryOpened.style.display = "block";
 
 }
@@ -116,9 +119,11 @@ if(currentMemory < memories.length){
 
 loadMemory();
 
-}else{
+}
+else{
 
 memoryPage.classList.remove("active");
+
 notePage.classList.add("active");
 
 }
@@ -132,6 +137,7 @@ notePage.classList.add("active");
 function openNote(){
 
 noteClosed.style.display = "none";
+
 noteOpened.style.display = "block";
 
 startTypewriter();
@@ -139,7 +145,7 @@ startTypewriter();
 }
 
 // ===============================
-// TYPEWRITER
+// TYPEWRITER EFFECT
 // ===============================
 
 function startTypewriter(){
@@ -172,7 +178,8 @@ function type(){
 
 if(i < message.length){
 
-typewriter.innerHTML += message.charAt(i);
+typewriter.innerHTML +=
+message.charAt(i);
 
 i++;
 
@@ -187,12 +194,13 @@ type();
 }
 
 // ===============================
-// FINAL PAGE
+// SHOW FINAL PAGE
 // ===============================
 
 function showFinalPage(){
 
 notePage.classList.remove("active");
+
 finalPage.classList.add("active");
 
 const heart =
@@ -246,7 +254,7 @@ window.scrollTo(0,0);
 }
 
 // ===============================
-// EXPOSE FUNCTIONS
+// GLOBAL FUNCTIONS
 // ===============================
 
 window.startMemories = startMemories;
