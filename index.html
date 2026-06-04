@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dabbaaa ❤️</title>
+<title>Happy Birthday Vaishnavi ❤️</title>
 
 <link rel="stylesheet" href="style.css">
 </head>
@@ -11,185 +11,154 @@
 <body>
 
 <!-- STARS -->
-<div id="stars"></div>
+<div class="stars"></div>
+<div class="shooting-star star1"></div>
+<div class="shooting-star star2"></div>
+<div class="shooting-star star3"></div>
 
-<!-- SHOOTING STARS -->
-<div class="shooting-star"></div>
-<div class="shooting-star second"></div>
+<!-- ================= COVER ================= -->
 
-<!-- COVER PAGE -->
-<section id="cover" class="page active">
+<section id="coverPage" class="page active">
 
-<div class="cover-overlay"></div>
+    <img src="cover.png" class="cover-image" alt="Cover">
 
-<div class="cover-content">
+    <div class="cover-overlay">
 
-<h1>Dabbaaa.... ❤️</h1>
+        <h1 class="cover-title">
+            Dabbaaa.... ❤️
+        </h1>
 
-<p>A little surprise for you ✨</p>
+        <p class="cover-subtitle">
+            A little surprise for you ✨
+        </p>
 
-<button id="openBtn">
-Open ❤️
-</button>
+        <button class="main-btn" onclick="startMemories()">
+            Open ❤️
+        </button>
 
-</div>
-
-</section>
-
-<!-- PHOTO 1 -->
-<section class="page memory-page">
-
-<h2 class="memory-title">
-🐱 A little memory ✨
-</h2>
-
-<div class="photo-wrapper">
-<img src="photo1.jpg" alt="">
-</div>
-
-<div class="memory-name">
-Vaishnavi ❤️
-</div>
-
-<button class="next-btn">
-Next →
-</button>
+    </div>
 
 </section>
 
-<!-- PHOTO 2 -->
-<section class="page memory-page">
+<!-- ================= MEMORY PAGE ================= -->
 
-<h2 class="memory-title">
-🐥 Another special moment ✨
-</h2>
+<section id="memoryPage" class="page">
 
-<div class="photo-wrapper">
-<img src="photo2.jpg" alt="">
-</div>
+    <div class="memory-card">
 
-<div class="memory-name">
-Vaishuuu ❤️
-</div>
+        <h2 id="memoryTitle">
+            🐱 A little memory ✨
+        </h2>
 
-<button class="next-btn">
-Next →
-</button>
+        <div id="memoryClosed">
 
-</section>
+            <button class="gift-btn" onclick="openMemory()">
+                🎁 Click to Open Memory ❤️
+            </button>
 
-<!-- PHOTO 3 -->
-<section class="page memory-page">
+        </div>
 
-<h2 class="memory-title">
-🐱 This one makes me smile ❤️
-</h2>
+        <div id="memoryOpened" style="display:none;">
 
-<div class="photo-wrapper">
-<img src="photo3.jpg" alt="">
-</div>
+            <img id="memoryImage"
+                 class="memory-image"
+                 src="photo1.jpg"
+                 alt="Memory">
 
-<div class="memory-name">
-Dabba ❤️
-</div>
+            <h3 id="memoryCaption">
+                Vaishnavi ❤️
+            </h3>
 
-<button class="next-btn">
-Next →
-</button>
+            <button
+                class="next-btn"
+                onclick="nextMemory()">
+                Next →
+            </button>
 
-</section>
+        </div>
 
-<!-- PHOTO 4 -->
-<section class="page memory-page">
-
-<h2 class="memory-title">
-🐥 A moment worth keeping 🌙
-</h2>
-
-<div class="photo-wrapper">
-<img src="photo4.jpg" alt="">
-</div>
-
-<div class="memory-name">
-Vaishnavi ✨
-</div>
-
-<button class="next-btn">
-Next →
-</button>
+    </div>
 
 </section>
 
-<!-- PHOTO 5 -->
-<section class="page memory-page">
+<!-- ================= NOTE PAGE ================= -->
 
-<h2 class="memory-title">
-🐱 My Favourite Surprise ✨
-</h2>
+<section id="notePage" class="page">
 
-<div class="photo-wrapper">
-<img src="photo5.jpg" alt="">
-</div>
+    <div class="note-card">
 
-<div class="memory-name">
-My Favourite Person ❤️
-</div>
+        <div id="noteClosed">
 
-<button class="next-btn">
-Open Special Note ❤️
-</button>
+            <button class="gift-btn" onclick="openNote()">
+                💌 Click to Open Special Note ❤️
+            </button>
 
-</section>
+        </div>
 
-<!-- NOTE PAGE -->
-<section class="page" id="notePage">
+        <div id="noteOpened" style="display:none;">
 
-<div class="note-card">
+            <h2>
+                Special Note ❤️
+            </h2>
 
-<h2>Special Note ❤️</h2>
+            <div id="typewriter" class="note-text"></div>
 
-<div id="typewriter"></div>
+            <button
+                class="next-btn"
+                onclick="showFinalPage()">
+                Continue ✨
+            </button>
 
-<button class="next-btn">
-Continue ✨
-</button>
+        </div>
 
-</div>
+    </div>
 
 </section>
 
-<!-- FINAL PAGE -->
-<section class="page" id="finalPage">
+<!-- ================= FINAL PAGE ================= -->
 
-<div id="animalScene">
+<section id="finalPage" class="page">
 
-<div id="cat">
-🐱
-</div>
+    <div class="final-container">
 
-<div id="chick">
-🐥
-</div>
+        <img
+            src="cat.png"
+            id="cat"
+            class="cat-character"
+            alt="cat">
 
-</div>
+        <img
+            src="chick.png"
+            id="chick"
+            class="chick-character"
+            alt="chick">
 
-<div id="finalMessage">
+        <div id="heart" class="heart-center">
+            ❤️
+        </div>
 
-<h1>
-Happy Birthday<br>
-Vaishnavi ❤️
-</h1>
+        <div id="finalText" class="final-text">
 
-<p>
-More beautiful memories await...
-✨
-</p>
+            <h1>
+                Happy Birthday
+                <br>
+                Vaishnavi ❤️
+            </h1>
 
-<button id="replayBtn">
-❤️ Replay Memories ❤️
-</button>
+            <p>
+                More beautiful memories await...
+                ✨
+            </p>
 
-</div>
+            <button
+                class="main-btn"
+                onclick="location.reload()">
+                ❤️ Replay Memories ❤️
+            </button>
+
+        </div>
+
+    </div>
 
 </section>
 
