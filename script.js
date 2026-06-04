@@ -23,9 +23,9 @@ caption:"My Favourite Person ❤️"
 
 let currentMemory = 0;
 
-/* ========================= */
-/* PAGE SWITCH */
-/* ========================= */
+/* ========================= /
+/ PAGE SWITCH /
+/ ========================= */
 
 function showPage(pageId){
 
@@ -36,11 +36,12 @@ page.classList.remove("active");
 document.getElementById(pageId).classList.add("active");
 
 window.scrollTo(0,0);
+
 }
 
-/* ========================= */
-/* START MEMORIES */
-/* ========================= */
+/* ========================= /
+/ START MEMORIES /
+/ ========================= */
 
 function startMemories(){
 
@@ -48,38 +49,44 @@ showPage("memoryPage");
 
 document.getElementById("memoryClosed").style.display="block";
 document.getElementById("memoryOpened").style.display="none";
+
+currentMemory = 0;
+
 }
 
-/* ========================= */
-/* OPEN MEMORY */
-/* ========================= */
+/* ========================= /
+/ OPEN MEMORY /
+/ ========================= */
 
 function openMemory(){
 
 document.getElementById("memoryClosed").style.display="none";
 document.getElementById("memoryOpened").style.display="block";
 
-currentMemory = 0;
-
 loadMemory();
+
 }
 
-/* ========================= */
-/* LOAD MEMORY */
-/* ========================= */
+/* ========================= /
+/ LOAD MEMORY /
+/ ========================= */
 
 function loadMemory(){
+
+document.getElementById("memoryTitle").innerText =
+"🎁 Memory " + (currentMemory + 1) + " ✨";
 
 document.getElementById("memoryImage").src =
 memories[currentMemory].image;
 
 document.getElementById("memoryCaption").innerText =
 memories[currentMemory].caption;
+
 }
 
-/* ========================= */
-/* NEXT MEMORY */
-/* ========================= */
+/* ========================= /
+/ NEXT MEMORY /
+/ ========================= */
 
 function nextMemory(){
 
@@ -87,7 +94,8 @@ currentMemory++;
 
 if(currentMemory < memories.length){
 
-loadMemory();
+document.getElementById("memoryClosed").style.display="block";
+document.getElementById("memoryOpened").style.display="none";
 
 }else{
 
@@ -95,12 +103,14 @@ showPage("notePage");
 
 document.getElementById("noteClosed").style.display="block";
 document.getElementById("noteOpened").style.display="none";
-}
+
 }
 
-/* ========================= */
-/* OPEN NOTE */
-/* ========================= */
+}
+
+/* ========================= /
+/ OPEN NOTE /
+/ ========================= */
 
 function openNote(){
 
@@ -143,11 +153,12 @@ clearInterval(typing);
 }
 
 },35);
+
 }
 
-/* ========================= */
-/* FINAL PAGE */
-/* ========================= */
+/* ========================= /
+/ FINAL PAGE /
+/ ========================= */
 
 function showFinalPage(){
 
@@ -165,7 +176,7 @@ document.getElementById("heart");
 const text =
 document.getElementById("finalText");
 
-/* Reset */
+/* RESET */
 
 cat.style.left="-120px";
 chick.style.right="-120px";
@@ -173,7 +184,7 @@ chick.style.right="-120px";
 heart.style.opacity="0";
 text.style.opacity="0";
 
-/* Walk */
+/* WALK */
 
 setTimeout(()=>{
 
@@ -182,7 +193,7 @@ chick.style.right="30%";
 
 },300);
 
-/* Heart */
+/* HEART */
 
 setTimeout(()=>{
 
@@ -190,18 +201,19 @@ heart.style.opacity="1";
 
 },4200);
 
-/* Text */
+/* TEXT */
 
 setTimeout(()=>{
 
 text.style.opacity="1";
 
 },5200);
+
 }
 
-/* ========================= */
-/* REPLAY */
-/* ========================= */
+/* ========================= /
+/ REPLAY /
+/ ========================= */
 
 function replayStory(){
 
@@ -216,11 +228,15 @@ document.getElementById("noteClosed").style.display="block";
 document.getElementById("noteOpened").style.display="none";
 
 document.getElementById("typewriter").innerHTML="";
+
+document.getElementById("memoryTitle").innerText =
+"🎁 Memory Surprise ✨";
+
 }
 
-/* ========================= */
-/* INITIAL LOAD */
-/* ========================= */
+/* ========================= /
+/ INITIAL LOAD /
+/ ========================= */
 
 window.onload = function(){
 
