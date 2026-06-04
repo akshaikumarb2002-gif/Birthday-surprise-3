@@ -1,14 +1,162 @@
-// ALL PAGES
-const pages = document.querySelectorAll(".page");
+// ======================
+// MEMORY DATA
+// ======================
 
-let currentPage = 0;
+const memories = [
+{
+title:"🐱 A little memory ✨",
+image:"photo1.jpg",
+caption:"Vaishnavi ❤️"
+},
+{
+title:"🐥 Another special moment ✨",
+image:"photo2.jpg",
+caption:"Vaishuuu ❤️"
+},
+{
+title:"🐱 This one makes me smile ❤️",
+image:"photo3.jpg",
+caption:"Dabba ❤️"
+},
+{
+title:"🐥 A moment worth keeping 🌙",
+image:"photo4.jpg",
+caption:"Vaishnavi ✨"
+},
+{
+title:"🐱 My Favourite Surprise ✨",
+image:"photo5.jpg",
+caption:"My Favourite Person ❤️"
+}
+];
 
-// BUTTONS
-const openBtn = document.getElementById("openBtn");
-const replayBtn = document.getElementById("replayBtn");
+// ======================
+// PAGE ELEMENTS
+// ======================
 
-// SPECIAL NOTE
-const birthdayMessage = `Happy Birthday Vaishuuu ❤️
+const coverPage = document.getElementById("coverPage");
+const memoryPage = document.getElementById("memoryPage");
+const notePage = document.getElementById("notePage");
+const finalPage = document.getElementById("finalPage");
+
+const memoryTitle =
+document.getElementById("memoryTitle");
+
+const memoryImage =
+document.getElementById("memoryImage");
+
+const memoryCaption =
+document.getElementById("memoryCaption");
+
+const memoryClosed =
+document.getElementById("memoryClosed");
+
+const memoryOpened =
+document.getElementById("memoryOpened");
+
+const noteClosed =
+document.getElementById("noteClosed");
+
+const noteOpened =
+document.getElementById("noteOpened");
+
+const typewriter =
+document.getElementById("typewriter");
+
+// ======================
+// CURRENT MEMORY
+// ======================
+
+let currentMemory = 0;
+
+// ======================
+// OPEN COVER
+// ======================
+
+function startMemories(){
+
+coverPage.classList.remove("active");
+
+memoryPage.classList.add("active");
+
+loadMemory();
+
+}
+
+// ======================
+// LOAD MEMORY
+// ======================
+
+function loadMemory(){
+
+memoryClosed.style.display = "block";
+
+memoryOpened.style.display = "none";
+
+memoryTitle.innerHTML =
+memories[currentMemory].title;
+
+memoryImage.src =
+memories[currentMemory].image;
+
+memoryCaption.innerHTML =
+memories[currentMemory].caption;
+
+}
+
+// ======================
+// OPEN MEMORY
+// ======================
+
+function openMemory(){
+
+memoryClosed.style.display = "none";
+
+memoryOpened.style.display = "block";
+
+}
+
+// ======================
+// NEXT MEMORY
+// ======================
+
+function nextMemory(){
+
+currentMemory++;
+
+if(currentMemory < memories.length){
+
+loadMemory();
+
+return;
+
+}
+
+memoryPage.classList.remove("active");
+
+notePage.classList.add("active");
+
+}
+
+// ======================
+// OPEN NOTE
+// ======================
+
+function openNote(){
+
+noteClosed.style.display = "none";
+
+noteOpened.style.display = "block";
+
+startTypewriter();
+
+}
+
+// ======================
+// TYPEWRITER
+// ======================
+
+const message = `Happy Birthday Vaishuuu ❤️
 
 Be happy as always like now.
 
@@ -25,79 +173,25 @@ Once again,
 Happy Birthday Dabba ❤️`;
 
 let typingStarted = false;
-let finalStarted = false;
 
-// SHOW PAGE
-function showPage(index){
-
-pages.forEach(page=>{
-page.classList.remove("active");
-});
-
-pages[index].classList.add("active");
-
-if(index === 6){
-startTypewriter();
-}
-
-if(index === 7){
-startFinalAnimation();
-}
-
-}
-
-// OPEN STORY
-if(openBtn){
-
-openBtn.addEventListener("click",()=>{
-
-currentPage = 1;
-
-showPage(currentPage);
-
-});
-
-}
-
-// NEXT BUTTONS
-document.querySelectorAll(".next-btn").forEach(btn=>{
-
-btn.addEventListener("click",()=>{
-
-if(currentPage < pages.length - 1){
-
-currentPage++;
-
-showPage(currentPage);
-
-}
-
-});
-
-});
-
-// TYPEWRITER EFFECT
 function startTypewriter(){
 
 if(typingStarted) return;
 
 typingStarted = true;
 
-const target = document.getElementById("typewriter");
-
-target.innerHTML = "";
-
 let i = 0;
 
 function type(){
 
-if(i < birthdayMessage.length){
+if(i < message.length){
 
-target.innerHTML += birthdayMessage.charAt(i);
+typewriter.innerHTML +=
+message.charAt(i);
 
 i++;
 
-setTimeout(type,45);
+setTimeout(type,40);
 
 }
 
@@ -107,100 +201,70 @@ type();
 
 }
 
-// FINAL ANIMATION
-function startFinalAnimation(){
+// ======================
+// FINAL PAGE
+// ======================
 
-if(finalStarted) return;
+function showFinalPage(){
 
-finalStarted = true;
+notePage.classList.remove("active");
 
-const cat = document.getElementById("cat");
-const chick = document.getElementById("chick");
-const finalMessage = document.getElementById("finalMessage");
+finalPage.classList.add("active");
 
-let catPos = -250;
-let chickPos = -250;
+const cat =
+document.getElementById("cat");
 
-const catWalk = setInterval(()=>{
+const chick =
+document.getElementById("chick");
 
-catPos += 5;
+const heart =
+document.getElementById("heart");
 
-cat.style.left = catPos + "px";
-
-if(catPos >= window.innerWidth / 2 - 140){
-
-clearInterval(catWalk);
-
-}
-
-},20);
-
-const chickWalk = setInterval(()=>{
-
-chickPos += 5;
-
-chick.style.right = chickPos + "px";
-
-if(chickPos >= window.innerWidth / 2 - 140){
-
-clearInterval(chickWalk);
-
-}
-
-},20);
+const finalText =
+document.getElementById("finalText");
 
 setTimeout(()=>{
 
-finalMessage.style.opacity = "1";
+heart.style.opacity = "1";
 
-},3500);
+},5000);
+
+setTimeout(()=>{
+
+finalText.style.opacity = "1";
+
+},6000);
 
 }
 
+// ======================
 // REPLAY
-if(replayBtn){
+// ======================
 
-replayBtn.addEventListener("click",()=>{
+function replayStory(){
 
-typingStarted = false;
-finalStarted = false;
-
-const target = document.getElementById("typewriter");
-
-if(target){
-target.innerHTML = "";
-}
-
-document.getElementById("finalMessage").style.opacity = "0";
-
-document.getElementById("cat").style.left = "-250px";
-
-document.getElementById("chick").style.right = "-250px";
-
-currentPage = 0;
-
-showPage(currentPage);
-
-});
+location.reload();
 
 }
 
-// KEYBOARD SUPPORT
-document.addEventListener("keydown",(e)=>{
+// ======================
+// BUTTON FIX
+// ======================
 
-if(e.key === "ArrowRight"){
+window.startMemories =
+startMemories;
 
-if(currentPage < pages.length - 1){
+window.openMemory =
+openMemory;
 
-currentPage++;
+window.nextMemory =
+nextMemory;
 
-showPage(currentPage);
+window.openNote =
+openNote;
 
-}
+window.showFinalPage =
+showFinalPage;
 
-}
-
-});
-
-// INITIAL PAGE
-showPage(0);
+window.replayStory =
+replayStory;
