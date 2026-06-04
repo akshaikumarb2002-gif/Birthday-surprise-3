@@ -1,3 +1,4 @@
+
 *{
 margin:0;
 padding:0;
@@ -11,12 +12,14 @@ color:white;
 overflow-x:hidden;
 }
 
+/* ===================== */
 /* PAGES */
+/* ===================== */
 
 .page{
 display:none;
-min-height:100vh;
 width:100%;
+min-height:100vh;
 position:relative;
 }
 
@@ -26,7 +29,9 @@ justify-content:center;
 align-items:center;
 }
 
+/* ===================== */
 /* COVER */
+/* ===================== */
 
 #coverPage{
 width:100%;
@@ -37,11 +42,11 @@ position:relative;
 
 .cover-image{
 position:absolute;
+left:0;
+top:0;
 width:100%;
 height:100%;
 object-fit:cover;
-left:0;
-top:0;
 }
 
 .cover-overlay{
@@ -49,34 +54,31 @@ position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
+z-index:10;
 text-align:center;
-z-index:5;
 width:90%;
 }
 
 .cover-title{
 font-size:4rem;
 font-weight:bold;
-text-shadow:0 0 25px white;
-margin-bottom:10px;
-}
-
-.cover-subtitle{
-font-size:1.4rem;
+text-shadow:0 0 20px rgba(255,255,255,.8);
 margin-bottom:25px;
-text-shadow:0 0 10px black;
 }
 
+/* ===================== */
 /* BUTTONS */
+/* ===================== */
 
 .main-btn,
 .next-btn,
 .gift-btn{
 border:none;
+outline:none;
 cursor:pointer;
 background:white;
 color:black;
-padding:18px 40px;
+padding:16px 38px;
 border-radius:40px;
 font-size:1.1rem;
 font-weight:bold;
@@ -89,23 +91,25 @@ transition:.3s;
 transform:scale(1.05);
 }
 
-/* MEMORY */
+/* ===================== */
+/* MEMORY PAGE */
+/* ===================== */
 
 #memoryPage{
+padding:25px;
 justify-content:center;
 align-items:center;
-padding:30px;
 }
 
 .memory-card{
 width:95%;
-max-width:700px;
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(10px);
-padding:30px;
+max-width:750px;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(12px);
+padding:25px;
 border-radius:25px;
 text-align:center;
-box-shadow:0 0 30px rgba(255,255,255,.15);
+box-shadow:0 0 30px rgba(255,255,255,.12);
 }
 
 .memory-card h2{
@@ -118,8 +122,8 @@ width:100%;
 max-height:650px;
 object-fit:cover;
 border-radius:25px;
-box-shadow:0 0 30px rgba(255,255,255,.3);
 margin-bottom:20px;
+box-shadow:0 0 25px rgba(255,255,255,.2);
 }
 
 #memoryCaption{
@@ -127,22 +131,24 @@ font-size:2rem;
 margin-bottom:20px;
 }
 
-/* NOTE */
+/* ===================== */
+/* NOTE PAGE */
+/* ===================== */
 
 #notePage{
+padding:20px;
 justify-content:center;
 align-items:center;
-padding:20px;
 }
 
 .note-card{
 width:95%;
-max-width:800px;
+max-width:850px;
 background:rgba(255,255,255,.08);
-backdrop-filter:blur(10px);
-padding:40px;
-border-radius:30px;
-box-shadow:0 0 30px rgba(255,255,255,.1);
+backdrop-filter:blur(12px);
+padding:35px;
+border-radius:25px;
+box-shadow:0 0 30px rgba(255,255,255,.12);
 }
 
 .note-card h2{
@@ -152,17 +158,17 @@ font-size:2.3rem;
 }
 
 .note-text{
-font-size:1.5rem;
+font-size:1.4rem;
 line-height:2;
 white-space:pre-line;
 margin-bottom:30px;
 }
 
+/* ===================== */
 /* FINAL PAGE */
+/* ===================== */
 
 #finalPage{
-justify-content:center;
-align-items:center;
 overflow:hidden;
 }
 
@@ -172,33 +178,45 @@ height:100vh;
 position:relative;
 }
 
+/* CAT */
+
 .cat-character{
 position:absolute;
-bottom:100px;
-left:-350px;
-width:220px;
+bottom:120px;
+left:-200px;
+font-size:90px;
 animation:catWalk 5s forwards;
+z-index:10;
 }
+
+/* CHICK */
 
 .chick-character{
 position:absolute;
-bottom:100px;
-right:-350px;
-width:180px;
+bottom:120px;
+right:-200px;
+font-size:80px;
 animation:chickWalk 5s forwards;
+z-index:10;
 }
+
+/* WALK ANIMATION */
 
 @keyframes catWalk{
 to{
-left:35%;
+left:42%;
+transform:translateX(-100%);
 }
 }
 
 @keyframes chickWalk{
 to{
-right:35%;
+right:42%;
+transform:translateX(100%);
 }
 }
+
+/* HEART */
 
 .heart-center{
 position:absolute;
@@ -217,16 +235,18 @@ opacity:1;
 }
 }
 
+/* FINAL TEXT */
+
 .final-text{
 position:absolute;
-top:20%;
+top:12%;
 left:50%;
 transform:translateX(-50%);
 text-align:center;
+width:90%;
 opacity:0;
 animation:textAppear 2s forwards;
 animation-delay:6s;
-width:90%;
 }
 
 .final-text h1{
@@ -236,7 +256,7 @@ margin-bottom:20px;
 
 .final-text p{
 font-size:1.8rem;
-margin-bottom:25px;
+margin-bottom:30px;
 }
 
 @keyframes textAppear{
@@ -245,18 +265,20 @@ opacity:1;
 }
 }
 
+/* ===================== */
 /* STARS */
+/* ===================== */
 
 .stars{
 position:fixed;
-top:0;
 left:0;
+top:0;
 width:100%;
 height:100%;
 pointer-events:none;
 background-image:
 radial-gradient(white 1px, transparent 1px);
-background-size:35px 35px;
+background-size:55px 55px;
 animation:twinkle 4s infinite alternate;
 z-index:0;
 }
@@ -270,7 +292,9 @@ opacity:1;
 }
 }
 
+/* ===================== */
 /* SHOOTING STARS */
+/* ===================== */
 
 .shooting-star{
 position:fixed;
@@ -284,21 +308,21 @@ z-index:2;
 }
 
 .star1{
-top:20%;
+top:15%;
 left:-250px;
-animation:shoot1 10s infinite;
+animation:shoot1 12s infinite;
 }
 
 .star2{
 top:40%;
 left:-250px;
-animation:shoot2 14s infinite;
+animation:shoot2 16s infinite;
 }
 
 .star3{
 top:65%;
 left:-250px;
-animation:shoot3 18s infinite;
+animation:shoot3 20s infinite;
 }
 
 @keyframes shoot1{
@@ -343,20 +367,18 @@ left:120%;
 }
 }
 
+/* ===================== */
 /* MOBILE */
+/* ===================== */
 
 @media(max-width:768px){
 
 .cover-title{
-font-size:2.7rem;
-}
-
-.cover-subtitle{
-font-size:1rem;
+font-size:3rem;
 }
 
 .memory-card h2{
-font-size:1.6rem;
+font-size:1.5rem;
 }
 
 .memory-image{
@@ -372,11 +394,11 @@ font-size:1.2rem;
 }
 
 .cat-character{
-width:130px;
+font-size:70px;
 }
 
 .chick-character{
-width:110px;
+font-size:60px;
 }
 
 .final-text h1{
@@ -390,7 +412,8 @@ font-size:1.2rem;
 .main-btn,
 .next-btn,
 .gift-btn{
-padding:16px 28px;
 font-size:1rem;
+padding:15px 28px;
 }
+
 }
